@@ -1,0 +1,25 @@
+@RegulaReaderMinimalApi_HostAddress = http://localhost:5000
+
+### Connect to scanner
+POST {{RegulaReaderMinimalApi_HostAddress}}/api/scanner/connect
+Accept: application/json
+
+
+### Disconnect from scanner
+POST {{RegulaReaderMinimalApi_HostAddress}}/api/scanner/disconnect
+Accept: application/json
+
+
+### Read scanned document with images
+POST {{RegulaReaderMinimalApi_HostAddress}}/api/scanner/read?visual=true&mrz=true
+Accept: application/vnd.regula-reader-minimal-api.hateoas.1+json
+
+
+### Read specific fields only
+POST {{RegulaReaderMinimalApi_HostAddress}}/api/scanner/read?fields=surname,documentNumber
+Accept: application/json;v=1
+
+
+### Get scanned image
+GET {{RegulaReaderMinimalApi_HostAddress}}/api/scanner/image/portrait
+Accept: image/jpeg
