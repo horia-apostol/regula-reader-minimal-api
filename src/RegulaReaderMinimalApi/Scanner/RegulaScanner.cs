@@ -41,6 +41,9 @@ public sealed class RegulaScanner(ILinksProvider linksProvider) : IDocumentScann
                 var fieldType = (eVisualFieldType)typeValue;
                 var key = NamingHelper.ConvertToCamelCase(fieldType);
 
+                if (data.ContainsKey(key))
+                    continue;
+
                 var visual = item[XmlConstants.FieldVisual]?.InnerText;
                 var mrz = item[XmlConstants.FieldMrz]?.InnerText;
 
